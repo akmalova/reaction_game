@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "485811632267",
+    "project_id": "reaction-game-29292",
+    "storage_bucket": "reaction-game-29292.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:485811632267:android:326495c0983c2656fafc8e",
+        "android_client_info": {
+          "package_name": "com.reaction_game"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "485811632267-ju04m9ap5nv35uj21ejn34757vu6ajuj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUhCdKb6VzkNiWeKt53iKtZ5OMozxGR_M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "485811632267-ju04m9ap5nv35uj21ejn34757vu6ajuj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
