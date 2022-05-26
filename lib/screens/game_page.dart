@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../services/database.dart';
-import 'finish_page.dart';
 
 class GamePage extends StatefulWidget {
   const GamePage({Key? key}) : super(key: key);
@@ -29,10 +28,7 @@ class _GamePageState extends State<GamePage> {
     stopwatch.stop();
     Provider.of<DatabaseService>(context, listen: false)
         .addScore(stopwatch.elapsedMilliseconds);
-    Navigator.of(context)
-        .pushReplacement(MaterialPageRoute(builder: (BuildContext context) {
-      return const FinishPage();
-    }));
+    Navigator.pushReplacementNamed(context, '/finish');
   }
 
   @override

@@ -1,8 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
+import 'screens/finish_page.dart';
+import 'screens/game_page.dart';
 import 'screens/login_page.dart';
+import 'screens/rating_page.dart';
+import 'screens/start_page.dart';
 import 'services/database.dart';
 
 Future main() async {
@@ -20,9 +23,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Provider<DatabaseService>(
       create: (BuildContext context) => _database,
-      child: const MaterialApp(
+      child: MaterialApp(
         title: 'Reaction Game',
-        home: LoginPage(),
+        routes: {
+          '/login': (context) => const LoginPage(),
+          '/start': (context) => const StartPage(),
+          '/game': (context) => const GamePage(),
+          '/finish': (context) => const FinishPage(),
+          '/rating': (context) => const RatingPage(),
+        },
+        initialRoute: '/login',
       ),
     );
   }

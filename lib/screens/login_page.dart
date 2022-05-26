@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../services/database.dart';
-import 'start_page.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -26,11 +25,7 @@ class LoginPage extends StatelessWidget {
                 onSubmitted: (String name) {
                   Provider.of<DatabaseService>(context, listen: false)
                       .addUser(name);
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (BuildContext context) {
-                      return const StartPage();
-                    }),
-                  );
+                  Navigator.pushReplacementNamed(context, '/start');
                 },
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
@@ -42,6 +37,7 @@ class LoginPage extends StatelessWidget {
                   ),
                   labelText: 'Name',
                   filled: true,
+                  labelStyle: const TextStyle(color: Colors.grey),
                 ),
               ),
             ],

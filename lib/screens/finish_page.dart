@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../services/database.dart';
-import 'rating_page.dart';
-import 'game_page.dart';
 
 class FinishPage extends StatefulWidget {
   const FinishPage({Key? key}) : super(key: key);
@@ -27,25 +25,17 @@ class _FinishPageState extends State<FinishPage> {
         Provider.of<DatabaseService>(context, listen: false).getBestScore();
   }
 
-  void _onTap() {
-    Navigator.of(context)
-        .pushReplacement(MaterialPageRoute(builder: (BuildContext context) {
-      return const GamePage();
-    }));
-  }
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: _onTap,
+      onTap: () {
+        Navigator.pushReplacementNamed(context, '/game');
+      },
       child: Scaffold(
         floatingActionButton: IconButton(
           iconSize: 50.0,
           onPressed: () {
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (BuildContext context) {
-              return const RatingPage();
-            }));
+            Navigator.pushNamed(context, '/rating');
           },
           icon: const Icon(Icons.workspace_premium),
         ),

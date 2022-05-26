@@ -12,6 +12,7 @@ class RatingPage extends StatefulWidget {
 class _RatingPageState extends State<RatingPage> {
   String _rating = 'You havent played yet';
   String _bestScore = '';
+  bool _isPlayed = false;
 
   @override
   void initState() {
@@ -24,6 +25,7 @@ class _RatingPageState extends State<RatingPage> {
         Provider.of<DatabaseService>(context, listen: false).getBestScore();
     if (bestScore != -1) {
       _bestScore = 'Best | ' + bestScore.toString() + ' ms';
+      _isPlayed = true;
     }
     List<int> scores =
         Provider.of<DatabaseService>(context, listen: false).getScoresList();
@@ -55,24 +57,23 @@ class _RatingPageState extends State<RatingPage> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               const SizedBox(
-                height: 100.0,
+                height: 130.0,
               ),
               const Text(
                 'Last 5 tries',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30.0),
               ),
               const SizedBox(
-                height: 20.0,
+                height: 60.0,
               ),
-              Text(
-                _rating,
-                style: const TextStyle(
-                  fontSize: 20.0,
+              Align(
+                alignment: _isPlayed ? Alignment.centerLeft : Alignment.center,
+                child: Text(
+                  _rating,
+                  style: const TextStyle(
+                    fontSize: 20.0,
+                  ),
                 ),
-                textAlign: TextAlign.start,
-              ),
-              const SizedBox(
-                height: 20.0,
               ),
               const SizedBox(
                 height: 20.0,
